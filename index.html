@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutoring Services</title>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script> <!-- Import EmailJS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #fffcfc;
+        }
+
+        header {
+            background-color: #504f4f ;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        h1 {
+            margin: 0;
+        }
+        section {
+            padding: 20px;
+            margin: 10px;
+            background: #121212 ;
+            border-radius: 8px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="message"] {
+            padding: 10px;
+            border: 1px solid #40c1e9;
+            border-radius: 16px;
+            background-color: #121212;
+            color: #40c1e9;
+        }
+
+        input[type="message"] {
+          padding: 20px;
+        }
+
+        input[type="submit"] {
+            padding: 15px;
+            border: none;
+            background-color: #494949;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 16px;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #70bffb;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #121212 ;
+            color: rgb(248, 248, 248);
+        }
+
+        .downloadBtn {
+            padding: 20px;
+            border: none;
+            color: white;
+            background-color: #494949;
+            font-weight: bold;
+            border-radius: 16px;
+            display: flex;
+            display: inline;
+            transition: background-color 0.3s;
+        }
+
+        .downloadBtn:hover {
+            background-color: #70bffb;
+        }
+
+        .Box {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Space between the rectangles */
+            margin-top: 50px;
+        }
+
+        .bodyclass {
+            background-color: #44cfcb;
+            border: none;
+            border-radius: 8px;
+            padding: 20px;
+            width: 200px; /* Adjust width as needed */
+            font-weight: bold;
+        }
+
+        .Basic {
+            background-color: #89afcd; /* Change color for Basic Tier */
+            box-shadow: 0 4px 8px #89afcd;
+        }
+
+        .Advanced {
+            background-color: #8CD6BA; /* Change color for Advanced Tier */
+            box-shadow: 0 4px 8px #8CD6BA;
+        }
+
+        .Premium {
+            background-color: #83A8C3; /* Change color for Premium Tier */
+            box-shadow: 0 4px 8px #83A8C3;
+        }
+
+        img {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Gielie's Tutoring Services</h1>
+    </header>
+
+
+    <br><br>
+
+    <!-- Start with the tiers-->
+
+    <header><h1>Tiers:</h1></header>
+
+    <div class="Box">
+
+    <div class="bodyclass Basic">
+        Basic Tier🌱
+    
+        <ol>
+            <li>IT Delphi = R 50.00 per hour</li>
+            <br>
+            <li>HTML = R 40.00 per hour</li>
+            <br>
+            <li>Maths grade 8 - 10 = R 50.00 per hour</li>
+            </ol>
+    </div>
+
+    <div class="bodyclass Advanced">
+        Advanced Tier📈
+
+        <ol>
+            <li>IT Delphi for matric = R 55.00 per hour</li>
+            <br>
+            <li>HTML grade 12 with CSS = R 45.00 per hour</li>
+            <br>
+            <li>Maths grade 11 = R 55.00 per hour</li>
+            </ol>
+    </div>
+
+    <div class="bodyclass Premium">
+        Premium Tier🌟
+    
+        <ol>
+            <li>IT learn html, CSS, JS and lua = R 100.00 per hour</li>
+            <br>
+            <li>Learn CSS and JS = R 60.00 per hour</li>
+            </ol>
+    </div>
+
+    </div>
+
+    <section id="booking">
+        <h2>Book a Session</h2>
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message: <br><br>
+                Ensure you name the tier and the number for the subject of the tier you want:
+            </label>
+            <input type="message" id="message" name="message" required>
+            <input type="submit" value="Submit">
+            <br><br><br>
+        </form>
+    </section>
+
+<header>
+    <img src="whatsapp.png" width="10%" height="10%"></img>
+
+    <br>
+    <b>
+    <p>WhatsApp me: 066 132 0561</p>
+    </b>
+
+    <br><br>
+
+    <h2>Download files</h2>
+    <a href="Practical guide books IT.zip" download="Practical guide books IT.zip">
+    <button class="downloadBtn"> Download delphi practical guide files </button>
+    </a>
+
+</header>
+
+    <footer>
+        <p>CC Creative Commons. Are allowed to distribute.</p>
+    </footer>
+
+    <script>
+        (function() {
+            emailjs.init("q3yTBe2or4SbE596j"); // Replace with your Public Key
+        })();
+
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            console.log("Form submitted!"); // Log to confirm submission
+
+            emailjs.sendForm('service_ah0fien', 'template_srbl90g', this)
+                .then(function() {
+                    alert("Message sent successfully!");
+                }, function(error) {
+                    console.error("Failed to send message:", error);
+                    alert("Failed to send message. Please try again.");
+                });
+        });
+    </script>
+
+    
+</body>
+</html>
